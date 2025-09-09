@@ -1,0 +1,10 @@
+.Product-Card{
+    background-color: rgb(56, 53, 53);
+    border-radius: 7% ;
+    width: 200px;
+    height: 300px;
+    margin:20px;
+    text-align: center;
+    padding: 5px;
+    flex-wrap: wrap;
+}
