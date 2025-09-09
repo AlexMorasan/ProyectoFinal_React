@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home greeting="Hola amor de mi vida, estas bien buena"/>} />
+        <Route path="/" element={<Home greeting="Todos los productos"/>} />
         <Route path="/categorías" element={<Category />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
