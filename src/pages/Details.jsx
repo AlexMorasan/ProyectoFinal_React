@@ -1,19 +1,39 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { getProductById } from '../firebase';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../Context/CartContext'
 import './pages.css'
 
 function Details() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [cantidad, setCantidad] = useState(1);
+  const { addToCart } = useContext(CartContext);
   const aumentar = () => setCantidad(prev => prev + 1);
   const disminuir = () => {if (cantidad > 1) setCantidad(prev => prev - 1);};
+
 
   useEffect(() => {
     getProductById(id).then(data => setProduct(data));
   }, [id]);
+
+const agregarAlCarrito = () => {
+console.log("Agregando al carrito:", {
+    id: product.id,
+    nombre: product.nombre,
+    precio: product.precio,
+    ruta: product.ruta,
+    cantidad
+});
+addToCart({
+    id: product.id,
+    nombre: product.nombre,
+    precio: product.precio,
+    ruta: product.ruta,
+    cantidad
+});
+};
 
   if (!product) return <p>Cargando producto...</p>;
 
@@ -32,7 +52,7 @@ function Details() {
                 <span>{cantidad}</span>
                 <button onClick={aumentar}>+</button>
         </div>
-        <button>Agregar al carrito</button>
+        <button onClick={agregarAlCarrito}>Agregar al carrito</button>
         <br />
         <Link to={`/`}>
                 Regresar al Inicio
