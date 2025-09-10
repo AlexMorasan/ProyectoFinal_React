@@ -6,7 +6,9 @@ import NavBar from './components/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Category from './pages/Category';
-import Checkout from './pages/Checkout'
+import Checkout from './pages/Checkout';
+import Details from './pages/Details';
+import { CartProvider } from './Context/CartContext';
 
 function App() {
 
@@ -15,14 +17,19 @@ function App() {
   },[])
   return (
     //<div className="App">
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home greeting="Todos los productos"/>} />
-        <Route path="/categorías" element={<Category />} />
-        <Route path="/checkout" element={<Checkout />} />
-      </Routes>
+    <CartProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home greeting="Todos los productos"/>} />
+          <Route path="/categorías" element={<Category />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/producto/:id" element={<Details />} />
+          <Route path="*" element={<h2>Not found</h2>} />
+        </Routes>
     </BrowserRouter>
+    </CartProvider>
+
     //</div>
   );
 }

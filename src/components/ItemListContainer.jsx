@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {getProducts} from '../firebase'
 import ProductCard from './ProductCard'
+import '../pages/pages.css'
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
@@ -10,10 +11,10 @@ const ItemListContainer = () => {
     },[]);
 
     return(
-        <div>
+        <div className='pruebaflex'>
             {productos.map(producto =>(
                 <ProductCard
-                    key={producto.key}
+                    id={producto.id}
                     nombre={producto.nombre}
                     precio={producto.precio}
                     ruta={producto.ruta}

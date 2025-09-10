@@ -1,12 +1,13 @@
 import ItemListContainer from '../components/ItemListContainer';
-import NavBar from '../components/NavBar'
-import ProductCard from '../components/ProductCard'
+import './pages.css'
 
 const Home = ({greeting}) => {
     return (
-        <div>
+        <div className='prueba'>
             <h2>{greeting}</h2>
-            <ItemListContainer />
+            <div >
+                <ItemListContainer />
+            </div>
         </div>
         
     )

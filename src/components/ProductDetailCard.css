@@ -1,4 +1,4 @@
-.Product-Card{
+.Product-DetailCard{
     background-color: rgb(56, 53, 53);
     border-radius: 7% ;
     width: 300px;
@@ -6,25 +6,12 @@
     margin:10px;
     text-align: center;
     padding: 2px;
-    text-decoration: none;
 }
 
-.Product-Card img{
+.Product-DetailCard img{
     border-radius: 10px;
     height: 250px;
     width: 250px;
     object-fit:cover;
     image-rendering: auto;
-}
-
-.botones{
-    padding: 5px;
-}
-
-.botones span{
-    padding: 5px;
-}
-
-a{
-    text-decoration: none;
 }

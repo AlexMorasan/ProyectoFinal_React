@@ -1,0 +1,61 @@
+.prueba{
+    background-color: black;
+    color:whitesmoke;
+}
+
+.pruebaflex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Filtro_Categoria{
+    background-color: black;
+    color:whitesmoke;
+    height: 100vh;
+}
+
+.Categoria_Display{
+    background-color: black;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.Categorias{
+    display:flex;
+    flex-direction: row;
+}
+
+.Lista{
+    display:flex;
+    flex-direction: row;
+}
+
+.Categorias ul{
+    list-style-type: none;
+}
+
+
+.MainDetailDisplay{
+    background-color: black;
+    color:whitesmoke;
+    padding: 20px;
+    display:flex;
+    border: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    height: 500px;
+    border-color: whitesmoke;
+}
+
+.DetailPicture img{
+    /* width:150%; */
+    height:100%;
+    border-radius: 8px;
+    object-fit:cover;
+    image-rendering: auto;
+}
+
+.DetailInfo{
+    padding: 20px;
+    font-size: 25px;
+}
