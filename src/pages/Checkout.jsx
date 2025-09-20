@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
-import {getFirestore, collection, addDoc, Timestamp} from '../firebase';
+import { collection, getFirestore, addDoc, Timestamp } from "firebase/firestore";
 import './pages.css'
 
 
@@ -22,15 +22,34 @@ const Checkout = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Datos del usuario:", formData);
-    console.log("Contenido del carrito:", cart);
-    alert("¡Gracias por tu compra, " + formData.nombre + "!\n" + 
-      " Te mandaremos un Whatsapp cuando puedas pasar a recoger tus cosas en la sucursal de "
-       + formData.sucursal + "\n El pago se realiza en efectivo al recoger tus cosas." );
-    clearCart();
-  };
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const db = getFirestore();
+
+        const orden = {
+          cliente: formData,
+          carrito: cart.map(item => ({
+            id: item.id,
+            nombre: item.nombre,
+            cantidad: item.cantidad,
+            precio: item.precio,
+            subtotal: item.precio * item.cantidad
+          })),
+          total: getTotal(),
+          fecha: Timestamp.fromDate(new Date())
+        };
+
+        try {
+          const docRef = await addDoc(collection(db, "ordenes"), orden);
+          alert(`¡Gracias por tu compra, ${formData.nombre}!\nTu número de orden es: ${docRef.id}`);
+          clearCart();
+        } catch (error) {
+          console.error("Error al subir la orden:", error);
+          alert("Hubo un problema al procesar tu orden. Intenta nuevamente.");
+        }
+      };
+
 
     return (
         <div className='Checkout-style'>
