@@ -8,7 +8,9 @@ import Home from './pages/Home';
 import Category from './pages/Category';
 import Checkout from './pages/Checkout';
 import Details from './pages/Details';
+import NotFound from './pages/NotFound';
 import { CartProvider } from './Context/CartContext';
+
 
 function App() {
 
@@ -25,7 +27,7 @@ function App() {
           <Route path="/categorías" element={<Category />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/producto/:id" element={<Details />} />
-          <Route path="*" element={<h2>Not found</h2>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
     </BrowserRouter>
     </CartProvider>

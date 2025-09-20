@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { CartContext } from '../Context/CartContext'
 
-/* const { cart, addToCart } = useContext(CartContext); */
-
-
 
 const ProductCard = ({id, nombre, precio, ruta}) => {
   const [cantidad, setCantidad] = useState(1);
