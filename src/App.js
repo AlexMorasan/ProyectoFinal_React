@@ -10,6 +10,9 @@ import Checkout from './pages/Checkout';
 import Details from './pages/Details';
 import NotFound from './pages/NotFound';
 import { CartProvider } from './Context/CartContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
@@ -29,6 +32,7 @@ function App() {
           <Route path="/producto/:id" element={<Details />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ToastContainer />
     </BrowserRouter>
     </CartProvider>
 
